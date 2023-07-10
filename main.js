@@ -51,8 +51,8 @@ gsap.to("#page2>h1>span",{
     color:`#fff`
 })
 
-
-const canvas = document.querySelector("canvas");
+function canvas(){
+  const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
@@ -201,3 +201,28 @@ ScrollTrigger.create({
   start: `top top`,
   end: `600% top`,
 });
+
+}
+
+canvas()
+
+
+var clutter1 = "";
+
+document.querySelector("#page4>h1").textContent.split("").forEach(function(dets1){
+    clutter1 += `<span>${dets1}</span>`
+
+    document.querySelector("#page4>h1").innerHTML = clutter1;
+})
+
+gsap.to("#page4>h1>span",{
+  scrollTrigger:{
+      trigger:`#page4>h1>span`,
+      start:`top bottom`,
+      end:`bottom top`,
+      scroller:`#main`,
+      scrub:.5,
+  },
+  stagger:.2,
+  color:`#fff`
+})
